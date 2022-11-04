@@ -1,5 +1,5 @@
 cc = $(CROSS_COMPILE)gcc
-Cflags = -g -Wall
+Cflags = -g 
 file = writer
 
 .PHONY: all clean
@@ -9,4 +9,3 @@ $(file):
 	
 clean all: 
 	rm -f $(file)
-
