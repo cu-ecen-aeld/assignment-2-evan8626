@@ -1,0 +1,1 @@
+writer: ELF 64-bit LSB executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lin/ld-linux-aarch64.so.1, for GNU/LINUX 3.7.0, with debug_info, not stripped
