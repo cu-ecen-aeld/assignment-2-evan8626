@@ -30,21 +30,27 @@ MATCHSTR="The number of files are ${NUMFILES} and the number of matching lines a
 echo "Writing ${NUMFILES} files containing string ${WRITESTR} to ${WRITEDIR}"
 
 rm -rf "${WRITEDIR}"
-mkdir -p "$WRITEDIR"
+
+assignment=$(cat ../conf/assignment.txt)
+
+if [ $assignment != 'assignment1' ]
+then
+	mkdir -p "$WRITEDIR"
 
 #The WRITEDIR is in quotes because if the directory path consists of spaces, then variable substitution will consider it as multiple argument.
 #The quotes signify that the entire string in WRITEDIR is a single string.
 #This issue can also be resolved by using double square brackets i.e [[ ]] instead of using quotes.
-if [ -d "$WRITEDIR" ]
-then
-	echo "$WRITEDIR created"
-else
-	exit 1
-fi
+	if [ -d "$WRITEDIR" ]
+	then
+		echo "$WRITEDIR created"
+	else
+		exit 1
+	fi
 
 #echo "Removing the old writer utility and compiling as a native application"
 make clean
 make
+fi
 
 for i in $( seq 1 $NUMFILES)
 do
