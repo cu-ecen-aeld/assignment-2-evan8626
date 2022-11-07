@@ -6,11 +6,12 @@ set -e
 set -u
 
 NUMFILES=10
+WRITER=writer.sh
 WRITESTR=AELD_IS_FUN
 WRITEDIR=/tmp/aeld-data
 username=$(cat conf/username.txt)
 
-if [ $# -lt 2 ]
+if [ $# -lt 3 ]
 then
 	echo "Using default value ${WRITESTR} for string to write"
 	if [ $# -lt 1 ]
@@ -42,8 +43,8 @@ else
 fi
 
 #echo "Removing the old writer utility and compiling as a native application"
-#make clean
-#make
+make clean
+make
 
 for i in $( seq 1 $NUMFILES)
 do
