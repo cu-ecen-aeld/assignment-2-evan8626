@@ -35,12 +35,11 @@ echo "Writing ${NUMFILES} files containing string ${WRITESTR} to ${WRITEDIR}"
 
 rm -rf "${WRITEDIR}"
 
-assignment=$(cat ../conf/assignment.txt)
+assignment='cat ../conf/assignment.txt'
 
 if [ $assignment != 'assignment1' ]
 then
 	mkdir -p "$WRITEDIR"
-	WRITER=writer
 
 #The WRITEDIR is in quotes because if the directory path consists of spaces, then variable substitution will consider it as multiple argument.
 #The quotes signify that the entire string in WRITEDIR is a single string.
