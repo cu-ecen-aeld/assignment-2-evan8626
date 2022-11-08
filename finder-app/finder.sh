@@ -5,17 +5,25 @@
 filesdir=$1
 searchstr=$2
 
-shopt -s nullglob
-numfiles=(*)
-numfiles=${#numfiles[@]}
+#shopt -s nullglob
+#numfiles=(*)
+#numfiles=${#numfiles[@]}
+#numstr=(*)
+#numstr=${#searchstr[@]}
 
-if [  $# -lt 3 ]
+if [  $# -eq 2 ]
 then
-	echo "The number of files are ${numfiles} and the number of matching lines are ${numfiles}"
+	if [ -d $filesdir ]
+	then
+		numfiles=$(ls $filesdir | wc -l)
+		mtc=$(grep -r -l $searchstr $filesdir | wc -l)
+		echo "The number of files are ${numfiles} and the number of 			matching lines are ${mtc}"
+		exit 0
+	fi
 	
 elif [ $2 -eq 0 ]
 then
-	echo "Parameter not specified"
+	echo "Parameter ${searchstr} not specified"
 	exit 1
 elif [ $1 -eq 0 ]
 then
