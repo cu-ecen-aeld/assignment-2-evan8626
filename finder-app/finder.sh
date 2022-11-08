@@ -9,7 +9,7 @@ shopt -s nullglob
 numfiles=(*)
 numfiles=${#numfiles[@]}
 
-if [  $# -lt 4 ]
+if [  $# -lt 3 ]
 then
 	echo "The number of files are ${numfiles} and the number of matching lines are ${numfiles}"
 	
