@@ -17,7 +17,8 @@ elif [ -z $2 ]
 then
 	echo "Write string not specified"
 	exit 1
-elif [  $# -lt 3 ]
+elif [  $# -eq 2 ]
 then
-	echo $2>writefile.txt
+	echo writestr > $filename
+	exit 0
 fi
